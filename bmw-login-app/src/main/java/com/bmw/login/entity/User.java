@@ -15,6 +15,7 @@ import javax.persistence.Version;
 @NamedQueries({
 	@NamedQuery(name = "User.getAll", query = "SELECT u FROM User u"),
 	@NamedQuery(name = "User.byEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
+	@NamedQuery(name = "User.validation", query = "SELECT u FROM User u WHERE u.email = :email AND u.password = :password")
 })
 public class User {
 	

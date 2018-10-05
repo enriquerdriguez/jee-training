@@ -4,6 +4,7 @@
 package com.bmw.login.boundaries;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
@@ -23,6 +24,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.bmw.login.entity.User;
+import com.bmw.login.exceptions.AuthNotFoundException;
 import com.bmw.login.exceptions.UserNotFoundException;
 
 /**
@@ -183,6 +185,42 @@ public class LoginServiceTest {
 		
 		assertEquals(user ,expect);
 	}	
+	
+	@Test
+	public final void testValidateUserOK() {
+		//Given
+		User expected = new User();
+		expected.setEmail("testing@testing.com");
+		expected.setPassword("testing");
+		
+		//When
+		when(em.createNamedQuery("User.validation")).thenReturn(query);
+		when(query.getSingleResult()).thenReturn(expected);
+		
+		User user = loginService.validate(new User());
+		//Then
+		assertEquals(expected,user);
+		assertNotNull(user);
+		
+	}
+	
+	@Test(expected = AuthNotFoundException.class)
+	public final void testValidateUserNULL() {
+		//Given
+		User expected = new User();
+		expected.setEmail("testing@testing.com");
+		expected.setPassword("testing");
+		
+		//When
+		when(em.createNamedQuery("User.validation")).thenReturn(query);
+		when(query.getSingleResult()).thenReturn(null);
+		
+		User user = loginService.validate(new User());
+		//Then
+		assertNotEquals(expected, user);
+		
+	}	
+	
 		
 
 }

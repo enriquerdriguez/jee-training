@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.bmw.login.entity.User;
+import com.bmw.login.exceptions.AuthNotFoundException;
 import com.bmw.login.exceptions.UserNotFoundException;
 
 @Named
@@ -90,6 +91,17 @@ public class LoginService {
 		User update = this.em.find(User.class, user.getId());
 		update.updateUser(user);
 		return user;
+	}
+	
+	public User validate(User user) {
+		Query query = em.createNamedQuery("User.validation");
+		query.setParameter("email", user.getEmail());
+		query.setParameter("password", user.getPassword());
+		User userValidated = (User) query.getSingleResult();
+		if(userValidated == null) {
+			throw new AuthNotFoundException("User not authorized");
+		}
+		return userValidated;
 	}
 	
 }

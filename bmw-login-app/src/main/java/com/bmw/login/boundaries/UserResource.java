@@ -13,7 +13,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.bmw.login.entity.User;
+import com.bmw.login.exceptions.UserNotFoundException;
+import com.bmw.login.security.BasicAuthentication;
 
+@BasicAuthentication
 @Path("users")
 public class UserResource {
 
@@ -40,6 +43,14 @@ public class UserResource {
 	@Path("{email}")
 	public Response getUserByEmail(@PathParam("email") String email){
 		User user = this.loginService.getByEmail(email);
+		return Response.status(200).entity(user).build();
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("id/{id}")
+	public Response getUserById(@PathParam("id") long id) throws UserNotFoundException {
+		User user = this.loginService.getUser(id);
 		return Response.status(200).entity(user).build();
 	}
 	
