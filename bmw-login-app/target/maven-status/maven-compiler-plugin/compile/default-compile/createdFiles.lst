@@ -1,0 +1,10 @@
+com\bmw\login\entity\User.class
+com\bmw\login\exceptions\GenericExceptionMapper.class
+com\bmw\login\exceptions\UserNotValidExceptionMapper.class
+com\bmw\login\app\JAXRSConfiguration.class
+com\bmw\login\exceptions\ErrorMessage.class
+com\bmw\login\boundaries\LoginService.class
+com\bmw\login\exceptions\UserNotFoundExceptionMapper.class
+com\bmw\login\boundaries\LoginResource.class
+com\bmw\login\exceptions\UserNotFoundException.class
+com\bmw\login\exceptions\UserNotValidException.class
