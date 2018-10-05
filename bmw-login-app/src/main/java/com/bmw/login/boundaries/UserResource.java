@@ -13,11 +13,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.bmw.login.entity.User;
-import com.bmw.login.exceptions.UserNotFoundException;
 
-
-@Path("login")
-public class LoginResource {
+@Path("users")
+public class UserResource {
 
 	@Inject
 	private LoginService loginService;
@@ -44,7 +42,5 @@ public class LoginResource {
 		User user = this.loginService.getByEmail(email);
 		return Response.status(200).entity(user).build();
 	}
-	
-	
 	
 }
