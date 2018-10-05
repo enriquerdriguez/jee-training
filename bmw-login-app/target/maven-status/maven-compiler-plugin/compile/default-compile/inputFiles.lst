@@ -1,7 +1,10 @@
+C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\AuthNotFoundException.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\app\JAXRSConfiguration.java
+C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\AuthNotFoundExceptionMapper.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\boundaries\UserResource.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\GenericExceptionMapper.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\UserNotFoundExceptionMapper.java
+C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\logger\Logged.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\ErrorMessage.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\security\BasicAuthentication.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\security\BasicAuthenticationFilter.java
@@ -9,5 +12,6 @@ C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bm
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\UserNotFoundException.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\boundaries\LoginResource.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\boundaries\LoginService.java
+C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\logger\LoggerInterceptor.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\exceptions\UserNotValidException.java
 C:\Users\erodrmed\eclipse-workspace\bmw-login\bmw-login-app\src\main\java\com\bmw\login\entity\User.java

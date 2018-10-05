@@ -12,12 +12,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.bmw.logger.Logged;
 import com.bmw.login.entity.User;
 import com.bmw.login.exceptions.UserNotFoundException;
 import com.bmw.login.security.BasicAuthentication;
 
 @BasicAuthentication
 @Path("users")
+@Logged
 public class UserResource {
 
 	@Inject
