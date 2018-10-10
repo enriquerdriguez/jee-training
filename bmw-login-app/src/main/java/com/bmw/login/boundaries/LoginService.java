@@ -8,14 +8,16 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.bmw.login.entity.User;
 import com.bmw.login.exceptions.AuthNotFoundException;
 import com.bmw.login.exceptions.UserNotFoundException;
+import com.bmw.login.security.PasswordEncoded;
 
-@Named
+//@Named
 @Stateless
 public class LoginService {
 
@@ -27,6 +29,7 @@ public class LoginService {
 	 * @param user
 	 * @return created User
 	 */
+	@PasswordEncoded
 	public User createUser(User user) {
 		
 		this.em.persist(user);
@@ -87,12 +90,14 @@ public class LoginService {
 	 * @param user
 	 * @return Updated User
 	 */
+	@PasswordEncoded
 	public User updateUser(User user) {
 		User update = this.em.find(User.class, user.getId());
 		update.updateUser(user);
 		return user;
 	}
 	
+	@PasswordEncoded
 	public User validate(User user) {
 		Query query = em.createNamedQuery("User.validation");
 		query.setParameter("email", user.getEmail());
@@ -102,6 +107,17 @@ public class LoginService {
 			throw new AuthNotFoundException("User not authorized");
 		}
 		return userValidated;
+	}
+	
+	@TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
+	public byte[] getUserSalt(String email) {
+			Query query = this.em.createNamedQuery("User.SaltbyEmail");
+			query.setParameter("email", email);
+			try {
+	            return (byte[]) query.getSingleResult();
+	        }catch (NoResultException ex){
+	            return null;
+	        }
 	}
 	
 }

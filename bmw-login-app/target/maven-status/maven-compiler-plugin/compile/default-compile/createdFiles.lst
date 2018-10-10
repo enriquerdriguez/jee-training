@@ -4,12 +4,14 @@ com\bmw\login\exceptions\AuthNotFoundException.class
 com\bmw\login\exceptions\GenericExceptionMapper.class
 com\bmw\login\exceptions\UserNotValidExceptionMapper.class
 com\bmw\login\exceptions\ErrorMessage.class
+com\bmw\login\security\PasswordEncoder.class
 com\bmw\logger\Logged.class
 com\bmw\logger\LoggerInterceptor.class
 com\bmw\login\security\BasicAuthentication.class
 com\bmw\login\boundaries\LoginResource.class
 com\bmw\login\exceptions\UserNotFoundException.class
 com\bmw\login\exceptions\UserNotValidException.class
+com\bmw\login\security\PasswordEncoded.class
 com\bmw\login\boundaries\UserResource.class
 com\bmw\login\app\JAXRSConfiguration.class
 com\bmw\login\security\BasicAuthenticationFilter.class

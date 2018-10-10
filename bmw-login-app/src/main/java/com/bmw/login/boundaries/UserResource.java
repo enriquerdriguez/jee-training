@@ -51,9 +51,10 @@ public class UserResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("id/{id}")
-	public Response getUserById(@PathParam("id") long id) throws UserNotFoundException {
+	public User getUserById(@PathParam("id") long id) throws UserNotFoundException {
 		User user = this.loginService.getUser(id);
-		return Response.status(200).entity(user).build();
+		//return Response.status(200).entity(user).build();
+		return user;
 	}
 	
 }
